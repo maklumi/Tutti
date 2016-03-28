@@ -2,10 +2,12 @@ package com.example.homepc.tutti;
 
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -20,71 +22,21 @@ import com.parse.ParseAnalytics;
 import java.util.Locale;
 
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class MainActivity extends AppCompatActivity {
 
-    //declare tab views
-    CharSequence titles[] = {"Browse", "Search"};
-    int numberOfTabs = 2;
 
-    MyFragmentPagerAdapter myFragmentPagerAdapter;
-    ViewPager viewPager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
-        final ActionBar actionBar = getSupportActionBar();
-//        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(
-//                R.color.blue
-//        )));
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        // create tab layout
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
 
-        myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
-
-        viewPager = (ViewPager)findViewById(R.id.pager);
-        viewPager.setAdapter(myFragmentPagerAdapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        for (int i = 0; i < myFragmentPagerAdapter.getCount(); i++) {
-            actionBar.addTab(actionBar.newTab().setText(
-                    myFragmentPagerAdapter.getPageTitle(i)
-            ).setTabListener(this));
-
-            actionBar.setSplitBackgroundDrawable(getResources().getDrawable(android.R.color.white));
-            actionBar.setStackedBackgroundDrawable(getResources().getDrawable(R.color.blue));
-
-        }
-
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(tab.getPosition());
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
 
@@ -113,6 +65,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
+        //declare tab views
+        private CharSequence titles[] = {"Browse", "Search"};
+        final int numberOfTabs = 2;
 
         public MyFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -134,58 +89,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         @Override
         public CharSequence getPageTitle(int position) {
-            Locale locale = Locale.getDefault();
+
             switch (position) {
                 case 0:
-                    return titles[position].toString().toUpperCase(locale);
+                    return titles[position];
                 case 1:
-                    return titles[position].toString().toUpperCase(locale);
+                    return titles[position];
             }
             return null;
         }
     }
-
-
-
-    // declare views and variables
-  /*  Toolbar toolbar;
-    ViewPager viewPager;
-    ViewPagerAdapter viewPagerAdapter;
-    SlidingTabLayout slidingTabLayout;
-   */
-
-
-  /*  @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // create toolbar
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // create viewpageadapter
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), titles, numberOfTabs);
-
-        // assign viewpager view
-        viewPager = (ViewPager)findViewById(R.id.pager);
-        viewPager.setAdapter(viewPagerAdapter);
-
-        // assign slidingtablayout view
-        slidingTabLayout = (SlidingTabLayout)findViewById(R.id.tabs);
-        slidingTabLayout.setDistributeEvenly(true);
-
-        // custom color for scrollbar
-        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-            @Override
-            public int getIndicatorColor(int position) {
-                return getResources().getColor(R.color.tabsScrollColor);
-            }
-        });
-
-        // set viewpager for slidingtabslayout
-        slidingTabLayout.setViewPager(viewPager);
-    }
-*/
-
 }

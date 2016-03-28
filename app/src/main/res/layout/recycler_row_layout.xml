@@ -68,7 +68,6 @@
             android:textSize="14sp"
             android:maxLines="1"/>
 
-
     </RelativeLayout>
 
 
