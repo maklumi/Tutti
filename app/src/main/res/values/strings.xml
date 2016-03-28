@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="parse_app_id">AGrjHeAxmiMTPXlSos3QIXFSIAuosYJ9GnfVCGdB</string>
+    <string name="parse_client_key">oZ9pvlolvcxWWsub2BNZHXanrIXeXNCtCJuvmSdt</string>
+
+    <string name="app_name">Tutti</string>
+
+    <string name="hello_world">Hello World!</string>
+    <string name="action_settings">Settings</string>
+</resources>

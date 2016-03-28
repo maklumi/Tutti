@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/grey_background"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchfragment_ed_search"
+        android:layout_alignParentTop="true"
+        android:layout_margin="15dp"
+        android:paddingLeft="20dp"
+        android:hint="Search Title"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:background="@drawable/search_bg"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchfragment_tv_category"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/searchfragment_ed_search"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Category"
+        android:textSize="15sp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchfragment_spinner_category"
+        android:layout_below="@id/searchfragment_tv_category"
+        android:layout_marginTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"></Spinner>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchfragment_tv_region"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/searchfragment_spinner_category"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Region"
+        android:textSize="15sp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchfragment_spinner_region"
+        android:layout_below="@id/searchfragment_tv_region"
+        android:layout_marginTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"></Spinner>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_fine"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/searchfragment_spinner_region"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:text="Find"
+        android:background="@drawable/selector_button_submit"/>
+
+</RelativeLayout>
