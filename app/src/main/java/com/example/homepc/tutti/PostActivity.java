@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
@@ -87,6 +89,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void setupCategorySpinner() {
+        //get items menu from parse
         ParseQueryAdapter.QueryFactory<ParseObject> factory = new ParseQueryAdapter.QueryFactory<ParseObject>() {
             @Override
             public ParseQuery<ParseObject> create() {
@@ -94,7 +97,7 @@ public class PostActivity extends AppCompatActivity {
                 return query;
             }
         };
-
+        // then feed to a SpinnerAdapter <--array or CursorAdapter <-- database
         categoryAdapter = new MyParseAdapter(getApplicationContext(), factory);
         categoryAdapter.setTextKey("name");
 
@@ -105,8 +108,7 @@ public class PostActivity extends AppCompatActivity {
 
     public void setupRegionSpinner() {
         ParseQueryAdapter.QueryFactory<ParseObject> factory = new ParseQueryAdapter.QueryFactory<ParseObject>() {
-            @Override
-            public ParseQuery<ParseObject> create() {
+            public ParseQuery create() {
                 ParseQuery query = new ParseQuery("Region");
                 return query;
             }
@@ -114,8 +116,7 @@ public class PostActivity extends AppCompatActivity {
 
         regionAdapter = new MyParseAdapter(getApplicationContext(), factory);
         regionAdapter.setTextKey("name");
-
-        regionSpinner.setAdapter(categoryAdapter);
+        regionSpinner.setAdapter(regionAdapter);
         regionSpinner.setSelection(1);
         regionSpinner.setOnItemSelectedListener(new RegionSpinnerListener());
     }
@@ -126,6 +127,8 @@ public class PostActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             ParseObject parseObject = regionAdapter.getItem(position);
             regionObject = parseObject;
+            // change color
+
         }
 
         @Override
@@ -176,7 +179,7 @@ public class PostActivity extends AppCompatActivity {
                         if (e == null) {
                             ParseObject object = new ParseObject("Product");
                             object.put("title", et_title.getText().toString());
-                            object.put("price", et_price.getText().toString());
+                            object.put("price", Double.valueOf(et_price.getText().toString()));
                             object.put("description", et_desc.getText().toString());
                             object.put("password", et_password.getText().toString());
                             object.put("category_object", categoryObject);

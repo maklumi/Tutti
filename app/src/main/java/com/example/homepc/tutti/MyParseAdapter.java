@@ -19,4 +19,5 @@ public class MyParseAdapter extends ParseQueryAdapter<ParseObject> {
     public int getViewTypeCount() {
         return 1;
     }
+
 }

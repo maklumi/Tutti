@@ -118,8 +118,7 @@ public class SearchFragment extends Fragment {
             }
         };
 
-        regionAdapter = new MyParseAdapter(getActivity(),
-                factory);
+        regionAdapter = new MyParseAdapter(getActivity(), factory);
         regionAdapter.setTextKey("name");
         regionSpinner.setAdapter(regionAdapter);
         regionSpinner.setSelection(1);
@@ -139,8 +138,7 @@ public class SearchFragment extends Fragment {
         categoryAdapter.setTextKey("name");
         categorySpinner.setAdapter(categoryAdapter);
         categorySpinner.setSelection(1);
-        categorySpinner
-                .setOnItemSelectedListener(new CategorySpinnerListener());
+        categorySpinner.setOnItemSelectedListener(new CategorySpinnerListener());
     }
 
     class RegionSpinnerListener implements Spinner.OnItemSelectedListener {

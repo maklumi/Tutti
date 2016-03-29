@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="@android:color/white">
+    android:background="@color/grey_background"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -61,19 +62,19 @@
                 android:hint="Enter price"/>
 
             <LinearLayout
-
                 android:id="@+id/postactivity_linearlayout_region"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_below="@id/postactivity_ed_price">
+                android:layout_below="@id/postactivity_ed_price"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/postactivity_tv_region"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="Region"
                     android:textSize="20sp"
@@ -81,11 +82,11 @@
                 <Spinner
                     android:id="@+id/postactivity_spinner_region"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+
+                    >
 
                 </Spinner>
-
-
 
             </LinearLayout>
 
@@ -101,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/postactivity_tv_category"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="Category"
                     android:textSize="20sp"
@@ -109,7 +110,9 @@
                 <Spinner
                     android:id="@+id/postactivity_spinner_category"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+
+                    >
 
                 </Spinner>
 
