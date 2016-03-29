@@ -62,10 +62,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter <RecyclerViewAdapt
             super(itemView);
             itemView.setOnClickListener(this);
             view = itemView;
-            title= (TextView)view.findViewById(R.id.tv_title);
-            price= (TextView)view.findViewById(R.id.tv_price);
-            date = (TextView)view.findViewById(R.id.tv_date);
-            imageView= (ImageView) view.findViewById(R.id.imageview);
+            title= (TextView)view.findViewById(R.id.adTitle);
+            price= (TextView)view.findViewById(R.id.adPrice);
+            date = (TextView)view.findViewById(R.id.adDate);
+            imageView= (ImageView) view.findViewById(R.id.adPic);
         }
 
         @Override

@@ -1,5 +1,6 @@
 package com.example.homepc.tutti;
 
+import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -23,8 +24,6 @@ import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

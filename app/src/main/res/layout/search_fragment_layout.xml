@@ -61,7 +61,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_fine"
+        android:id="@+id/searchfragment_button_find"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/searchfragment_spinner_region"
         android:layout_marginTop="50dp"

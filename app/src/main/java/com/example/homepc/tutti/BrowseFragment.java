@@ -51,6 +51,15 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
     private static final String IMAGE_DIRECTORY = "My tutti";
     private Uri fileUri;
 
+    public BrowseFragment() {
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -201,7 +210,7 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
         i.putExtra("price", model.getPrice());
         i.putExtra("date", model.getDate());
         i.putExtra("title", model.getTitle());
-        i.putExtra("desc", model.getDesc());
+        i.putExtra("description", model.getDesc());
         i.putExtra("phone", model.getPhone());
         i.putExtra("url", model.getImageFile());
         i.putExtra("objectId", model.getObjectId());
@@ -228,7 +237,7 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
                         model.setDate(String.valueOf(object.getCreatedAt().toLocaleString()));
                         model.setPrice(object.getNumber("price").toString());
                         model.setPhone(object.getNumber("phone").toString());
-                        model.setDesc(object.getString("desc"));
+                        model.setDesc(object.getString("description"));
                         model.setTitle(object.getString("title"));
                         model.setImageFile(object.getParseFile("image").getUrl());
                         model.setObjectId(object.getObjectId());
@@ -265,7 +274,7 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
                         model.setDate(String.valueOf(object.getCreatedAt().toLocaleString()));
                         model.setPrice(object.getNumber("price").toString());
                         model.setPhone(object.getNumber("phone").toString());
-                        model.setDesc(object.getString("desc"));
+                        model.setDesc(object.getString("description"));
                         model.setTitle(object.getString("title"));
                         model.setImageFile(object.getParseFile("image").getUrl());
                         model.setObjectId(object.getObjectId());
