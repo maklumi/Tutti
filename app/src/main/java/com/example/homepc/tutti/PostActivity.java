@@ -167,7 +167,7 @@ public class PostActivity extends AppCompatActivity {
                 dialog.setTitle("Loading");
                 dialog.setMessage("Please wait..");
                 dialog.show();
-
+//// TODO: 31-03-16 error on bitmap compress
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmapPost.compress(Bitmap.CompressFormat.JPEG, 75, stream);
 

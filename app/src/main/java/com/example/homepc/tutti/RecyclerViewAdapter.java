@@ -37,8 +37,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter <RecyclerViewAdapt
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.title.setText(itemsModels.get(position).getTitle());
-        holder.date.setText(itemsModels.get(position).getPrice());
-        holder.price.setText(itemsModels.get(position).getPrice());
+        holder.date.setText(itemsModels.get(position).getDate());
+        holder.price.setText("RM " + itemsModels.get(position).getPrice());
         Picasso.with(context).load(itemsModels.get(position).getImageFile()).into(holder.imageView);
     }
 

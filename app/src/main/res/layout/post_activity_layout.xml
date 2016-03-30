@@ -153,6 +153,7 @@
                 android:id="@+id/postactivity_ed_password"
                 android:layout_below="@id/postactivity_tv_password"
                 android:singleLine="true"
+                android:text="nopassword"
                 android:textSize="15sp"
                 android:hint="Enter password"/>
 
@@ -173,6 +174,7 @@
                 android:layout_below="@id/postactivity_tv_description"
                 android:singleLine="true"
                 android:textSize="15sp"
+                android:text="empty"
                 android:hint="Enter description"/>
 
             <Button

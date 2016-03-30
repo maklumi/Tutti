@@ -69,14 +69,16 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
         recyclerView = (RecyclerView) v.findViewById(R.id.browsefragment_recyclerview);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setOnScrollListener(new EndlessRecyclerView(layoutManager) {
+        recyclerView.addOnScrollListener(new EndlessRecyclerView(layoutManager) {
             @Override
             public void onLoadMore(int current_page) {
                 int limit = current_page * 5;
                 loadMoreItems(limit);
             }
         });
-        return super.onCreateView(inflater, container, savedInstanceState);
+        adapter = new RecyclerViewAdapter(data, getContext());
+        recyclerView.setAdapter(adapter);
+        return v;
 
     }
 
@@ -179,7 +181,7 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Clic
     @Override
     public void onResume() {
         super.onResume();
-        recyclerView.setOnScrollListener(new EndlessRecyclerView(layoutManager) {
+        recyclerView.addOnScrollListener(new EndlessRecyclerView(layoutManager) {
             @Override
             public void onLoadMore(int current_page) {
                 int limit = current_page * 5;
